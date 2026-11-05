@@ -1,8 +1,10 @@
 import type { MetricKind } from './metrics';
 import { starterPlan } from './guide-content';
 import { getSmoothScroller } from './smooth-scroll';
+import { isStaticSite, siteUrl } from './site';
 
 export function measure(kind: MetricKind) {
+  if (isStaticSite) return;
   if (navigator.doNotTrack === '1' || (navigator as Navigator & { globalPrivacyControl?: boolean }).globalPrivacyControl) return;
   let referrer = '';
   try { referrer = document.referrer ? new URL(document.referrer).origin : ''; } catch {}
@@ -24,6 +26,6 @@ export function starterPlanText() {
   return ['CHOOSING ABSTINENCE', 'Your seven-day starter plan', '', 'Use this plan at your own pace. Keep your reflections in a private notebook.', '',
     ...starterPlan.flatMap((day, index) => [`DAY ${index + 1}: ${day.title}`, day.action, `Reflection: ${day.reflection}`, '']),
     'Your worth does not depend on your sexual history. This is educational relationship guidance for adults.', '',
-    'https://choosing-abstinence-alexia.timidan-x.chatgpt.site/',
+    siteUrl,
   ].join('\n');
 }

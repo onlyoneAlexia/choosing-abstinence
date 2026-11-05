@@ -83,8 +83,7 @@ html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!
 .sparkle{position:absolute;width:var(--s,12px);height:var(--s,12px);background:#fff;clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);animation:twinkle 3.8s ease-in-out infinite}
 .sparkle:nth-child(2){animation-delay:-1.3s;animation-duration:4.4s}.sparkle:nth-child(3){animation-delay:-2.5s}.sparkle:nth-child(4){animation-delay:-.7s;animation-duration:5s}.sparkle:nth-child(5){animation-delay:-3.1s}.sparkle:nth-child(6){animation-delay:-1.9s;animation-duration:4.6s}.sparkle:nth-child(7){animation-delay:-3.6s}
 @keyframes twinkle{0%,100%{opacity:.15;scale:.5;rotate:0deg}50%{opacity:1;scale:1;rotate:45deg}}
-/* The flowing butterfly. Its picture sits on white, and multiply lets that white melt into the pink behind it.
-   The wrapper must not create a stacking context (no z-index, transform or opacity), or the blend would stop working. */
+/* Multiply blends the original butterfly background into the pink page. */
 .floating-butterfly{position:absolute;display:block;pointer-events:none}
 .floating-butterfly>img{width:100%;height:auto;mix-blend-mode:multiply;translate:0 calc(var(--cover,0)*-170px);animation:butterfly-float 9s ease-in-out infinite}
 .floating-butterfly .sparkle:nth-child(1){left:-14%;top:6%;--s:15px}.floating-butterfly .sparkle:nth-child(2){left:94%;top:17%;--s:10px}.floating-butterfly .sparkle:nth-child(3){left:12%;top:47%;--s:11px}
@@ -97,7 +96,7 @@ html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!
 .closing{position:relative;overflow:hidden}
 .closing-butterfly{right:12%;top:48px;width:clamp(80px,9vw,135px)}
 .closing-butterfly .sparkle:nth-child(1){left:-30%;top:12%}
-/* The glowing butterfly in the worth section: screen blending keeps only its light, so it glows on the wine. */
+/* Screen blending removes the dark background from the original butterfly. */
 .worth-butterfly{position:absolute;right:-1%;top:0;bottom:0;margin:auto 0;width:clamp(320px,34vw,520px);height:auto;mix-blend-mode:screen;-webkit-mask-image:radial-gradient(closest-side,#000 55%,transparent 100%);mask-image:radial-gradient(closest-side,#000 55%,transparent 100%);transform:translate3d(0,var(--drift,0px),0);animation:glow-breathe 7s ease-in-out infinite;pointer-events:none}
 @keyframes glow-breathe{0%,100%{scale:1;filter:brightness(1)}50%{scale:1.04;filter:brightness(1.15)}}
 /* The gallery: three framed pictures on deep wine, each with a short affirmation. */
@@ -109,10 +108,10 @@ html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!
 .art-sparkles .sparkle:nth-child(1){left:5%;top:12%;--s:14px}.art-sparkles .sparkle:nth-child(2){left:93%;top:9%;--s:10px;background:var(--sage)}.art-sparkles .sparkle:nth-child(3){left:47%;top:5%;--s:8px}.art-sparkles .sparkle:nth-child(4){left:3%;top:63%;--s:10px;background:var(--sage)}.art-sparkles .sparkle:nth-child(5){left:95%;top:55%;--s:13px}.art-sparkles .sparkle:nth-child(6){left:36%;top:95%;--s:9px;background:var(--sage)}.art-sparkles .sparkle:nth-child(7){left:66%;top:44%;--s:8px}
 .art-gallery{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,5vw,84px);align-items:start;max-width:1180px;margin:0 auto}
 .art-piece{position:relative;margin:0;display:flex;flex-direction:column;align-items:center;text-align:center}
-.art-frame{position:relative;width:min(100%,340px);overflow:hidden;background:var(--wine);box-shadow:0 34px 60px -30px #000d}
-.art-frame>img{width:100%;height:100%;object-fit:cover;transform:translate3d(0,var(--drift,0px),0);scale:1.15;transition:scale 1.6s cubic-bezier(.16,.84,.24,1)}
+.art-frame{position:relative;width:min(100%,340px);overflow:hidden;background:var(--wine);box-shadow:0 28px 55px -28px #0009,0 0 0 1px #f5c1d024}
+.art-frame>img{width:100%;height:100%;object-fit:cover;filter:saturate(.83) contrast(.96);transform:translate3d(0,var(--drift,0px),0);scale:1.08;transition:scale 1.6s cubic-bezier(.16,.84,.24,1)}
 .art-arch .art-frame{aspect-ratio:5/7;border-radius:999px 999px 22px 22px;outline:1px solid #f5c1d070;outline-offset:12px}
-.art-oval{margin-top:120px}.art-oval .art-frame{aspect-ratio:4/5;border-radius:50%;outline:1px solid #dce89470;outline-offset:12px}
+.art-oval{margin-top:120px}.art-oval .art-frame{aspect-ratio:4/5;border-radius:50%;outline:1px solid #f5c1d070;outline-offset:12px}
 .art-print{margin-top:46px}.art-print .art-frame{aspect-ratio:4/5;border-radius:4px;border:10px solid var(--cream);rotate:3deg}.art-print .art-frame>img{object-position:60% 50%}
 .art-print::before{content:"";position:absolute;z-index:2;top:-13px;left:50%;width:96px;height:28px;margin-left:-48px;background:#f5c1d0c4;rotate:-4deg;box-shadow:0 2px 6px #0003}
 .art-piece figcaption{margin-top:36px;max-width:300px;display:flex;flex-direction:column;align-items:center;gap:10px}
@@ -120,7 +119,7 @@ html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!
 .art-piece strong{font:800 36px/.95 var(--display);text-transform:uppercase;color:var(--pink)}
 .art-text{font-size:14.5px;line-height:1.75;color:#e4b5c3}
 .art-piece small{font-size:11px;color:#c98fa1}
-@media(hover:hover){.art-piece:hover .art-frame>img{scale:1.23}}
+@media(hover:hover){.art-piece:hover .art-frame>img{scale:1.12}}
 /* Each picture is watched as a whole (a clipped element cannot be seen by the observer), then its frame
    unveils from the bottom up while the picture settles and the caption rises after it. */
 .motion-ready .art-piece[data-reveal]{opacity:1;transform:none}

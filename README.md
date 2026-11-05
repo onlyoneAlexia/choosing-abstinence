@@ -4,6 +4,16 @@ This folder contains the complete source of the pink and burgundy website we bui
 
 Live website: https://choosing-abstinence-alexia.timidan-x.chatgpt.site/
 
+GitHub Pages: https://onlyoneAlexia.github.io/choosing-abstinence/
+
+## GitHub Pages deployment
+
+Run `pnpm build:pages` to create the static site in `dist/pages`, or `pnpm preview:pages` to inspect that build locally. The separate `vite.pages.config.ts` target reuses the public guide and tools without changing the existing Cloudflare server build.
+
+Pushes to `main` run `.github/workflows/pages.yml`: install locked dependencies, typecheck, run tests, build and deploy to GitHub Pages. Repository Settings → Pages must use **GitHub Actions** as its publishing source.
+
+The static edition does not collect analytics or provide server sign-in. Its creator dashboard link opens the existing protected dashboard on the original host. The Pages privacy note describes this behavior. Images, fonts, sharing links, and the starter-plan download use the repository's `/choosing-abstinence/` path. The site uses the original selected artwork; generated v2 drafts are not part of this deployment.
+
 ## Open and run it
 
 1. Extract the ZIP. Move the `choosing-abstinence` folder into your usual projects folder.

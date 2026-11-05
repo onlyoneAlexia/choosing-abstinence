@@ -18,17 +18,9 @@ The editable sources are in `design/book-cover/` (HTML and CSS rendered to image
 
 ## Artwork and butterflies
 
-The founder chose five images to give the page a softer, more feminine mood. They were added to the project folder as `image.png`, `download.jpg`, `Divine Feminine Energy.jpg`, `image-1.png` and `magnolia parks.jpg`, and converted into `public/images/art/`:
+The site uses the founder's original selected images in `public/images/art/`, with their original dimensions and descriptions in `lib/art.ts`. The generated v2 images were rejected for looking visibly AI-generated and are no longer referenced by the site. They remain as unused drafts.
 
-| File | From | Where it appears | Changes made |
-| --- | --- | --- | --- |
-| `butterfly-smoke.webp` | `download.jpg` (flowing pink butterfly) | Floats in the hero and the closing section | Its pale background was evened out to pure white so `mix-blend-mode: multiply` melts it into the pink. |
-| `butterfly-glow.webp` | `image.png` (pink butterfly on black) | Glows beside "Your worth does not depend on your sexual history." | Cropped to the butterfly; blacks deepened so `mix-blend-mode: screen` leaves only its light on the wine. |
-| `moon-woman.webp` | `Divine Feminine Energy.jpg` | Gallery, arch frame ("Take your time.") | Portrait crop; hue moved slightly from violet towards rose. |
-| `rose-woman.webp` | `image-1.png` | Gallery, oval frame ("Choose yourself first.") | The black screenshot bar at the top was removed. The mark at the bottom was kept. |
-| `lily-painting.webp` | `magnolia parks.jpg` | Gallery, taped print ("Rest in your decision.") | Hue nudged slightly towards pink. |
-
-The gallery text, alt text and credits live in `lib/art.ts`. **These pictures appear to come from other artists. Before the site goes public, confirm permission to use each one and add the artist's name to its `credit` field** (a filled-in credit is shown under the picture). Do not remove artists' signatures or watermarks.
+Presentation uses gentle desaturation, softer contrast and shadows, coordinated blush frame outlines, and restrained hover zoom. The original butterflies use multiply and screen blending to merge their white and black backgrounds with the page.
 
 Motion: the gallery frames unveil from the bottom up as they scroll into view, each picture drifts slightly inside its frame (`data-depth`), and small stars twinkle. With reduced motion turned on, everything is shown still.
 
