@@ -1,0 +1,30 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,700&display=block" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:768px;height:512px;overflow:hidden;background:transparent}body{zoom:2}
+  .stage{position:absolute;inset:0;perspective:1500px;perspective-origin:50% 30%}
+  /* long soft cast shadow and contact shadow on the floor */
+  .cast{position:absolute;left:372px;top:420px;width:330px;height:46px;background:linear-gradient(90deg,#3a0a1a59,#3a0a1a00);filter:blur(10px);transform:skewX(-48deg);transform-origin:left bottom;border-radius:40%}
+  .contact{position:absolute;left:262px;top:438px;width:250px;height:22px;background:radial-gradient(closest-side,#3a0a1a80,#3a0a1a00);filter:blur(3px)}
+  .book{position:absolute;left:258px;top:44px;width:262px;height:393px;transform-style:preserve-3d;transform:rotateY(24deg) rotateX(-1deg)}
+  .front{position:absolute;inset:0;background:url(cover.png) center/cover;border-radius:2px 4px 4px 2px;transform:translateZ(17px);box-shadow:inset 4px 0 6px -3px #0000002e}
+  .front::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(105deg,#ffffff38 0,#ffffff00 40%,#ffffff00 72%,#4b071718 100%)}
+  .spine{position:absolute;left:0;top:0;width:34px;height:393px;transform-origin:left center;transform:translateZ(17px) rotateY(-90deg);background:linear-gradient(90deg,#dd7f9c,#ea9cb3 45%,#d97795);display:flex;align-items:center;justify-content:center}
+  .spine span{writing-mode:vertical-rl;font:italic 700 17px/1 'Cormorant Garamond',serif;letter-spacing:2px;color:#a3284f;white-space:nowrap}
+  .top{position:absolute;left:0;top:0;width:262px;height:34px;transform-origin:center top;transform:translateZ(17px) rotateX(90deg);background:repeating-linear-gradient(0deg,#fbf3ee 0 1px,#eadbd6 1px 2px)}
+  .back{position:absolute;inset:0;background:#e98aa6;transform:translateZ(-17px)}
+  .sphere{position:absolute;left:178px;top:356px;width:96px;height:96px;border-radius:50%;background:
+    radial-gradient(circle at 34% 28%,#ffffffe6 0,#ffffff00 11%),
+    radial-gradient(circle at 70% 78%,#ff9fb933 0,#0000 30%),
+    radial-gradient(circle at 42% 38%,#a3173d 0,#6e0b25 48%,#2c0210 100%);
+    box-shadow:inset -8px -10px 18px #1a000877,inset 6px 8px 14px #ff6f9a26}
+  .sphere-shadow{position:absolute;left:186px;top:438px;width:110px;height:20px;background:radial-gradient(closest-side,#2c021099,#2c021000);filter:blur(2px)}
+</style></head><body>
+<div class="cast"></div><div class="contact"></div><div class="sphere-shadow"></div>
+<div class="stage">
+  <div class="book"><div class="back"></div><div class="spine"><span>CHOOSING ABSTINENCE</span></div><div class="front"></div></div>
+</div>
+<div class="sphere"></div>
+</body></html>

@@ -1,0 +1,2 @@
+# Local development only. This matches the built-in localhost test identity.
+DASHBOARD_OWNER_EMAIL=seedy@sites.test
