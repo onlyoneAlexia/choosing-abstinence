@@ -16,6 +16,14 @@ The current cover is an original illustrated design in a soft-pink, romance-nove
 
 The editable sources are in `design/book-cover/` (HTML and CSS rendered to images in a browser; render `cover.html` to `cover.png` first, because the two mockups use it). Fonts: Cormorant Garamond, Caveat and DM Sans from Google Fonts (Open Font License).
 
+## Logo
+
+The founder's "BA" badge (two serif letters inside a scalloped flower outline) replaced the earlier "CA." text mark. It was lifted off its cream background and recoloured as one flat colour:
+
+- `public/images/brand/logo-wine.png`: wine (#4b0717) on transparent, used in the header.
+- `public/images/brand/logo-pink.png`: pink (#f5c1d0) on transparent, used beside the name in the footer.
+- `public/favicon.svg`: the badge in wine on a rounded pink tile, with slightly thickened lines so it stays readable in a browser tab.
+
 ## Artwork and butterflies
 
 The site uses the founder's original selected images in `public/images/art/`, with their original dimensions and descriptions in `lib/art.ts`. The generated v2 images were rejected for looking visibly AI-generated and are no longer referenced by the site. They remain as unused drafts.
